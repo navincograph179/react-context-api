@@ -1,8 +1,47 @@
 # React + Vite
+# Context API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+a. Start
+b. Create a React app
+c. Create a context
+d. Provide the context
+e. consume the text in child
+f. End
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A. START
+
+B. Terminal 
+npm create vite@latest
+
+C. CREATE a folder of context in ./src
+  1. UserContext.js
+  2. UserContextProvider.jsx
+
+1. UserContext.js
+ import React from "react";
+
+const UserContext = React.createContext();
+
+export default UserContext;
+
+// these all are default code for react Context.
+
+
+2. UserContextProvider.jsx
+
+import React, { useState } from "react";
+
+import UserContext from "./UserContext";
+
+const UserContextProvider = ({children}) => {
+    const [user, setUser] = useState(null);
+
+    return (
+        <UserContext.Provider value={{user, setUser}}>
+          {children}
+        </UserContext.Provider>
+    )
+}
+
+export default UserContextProvider;

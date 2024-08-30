@@ -45,3 +45,12 @@ const UserContextProvider = ({children}) => {
 }
 
 export default UserContextProvider;
+
+
+also in App.jsx
+ wrap all components with <UserContextProvider> tags
+  <UserContextProvider>
+    <h1>Context API</h1>
+    <Login />
+    <Profile />
+  </UserContextProvider>

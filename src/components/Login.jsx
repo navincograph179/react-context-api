@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import UserContext from '../context/UserContext';
 
 const Login = () => {
+  
 
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const {setUser} = useContext(UserContext);
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+    setUser({username, password})
     //
   }
   return (
@@ -17,7 +22,7 @@ const Login = () => {
         type="text" 
         value={username} 
         placeholder='username'
-        onChange={(e)=>setUsername(e.target.value)}
+        onChange={(e)=> setUsername(e.target.value)}
         />
         <label htmlFor="">PASSWORD</label>
         <input 
